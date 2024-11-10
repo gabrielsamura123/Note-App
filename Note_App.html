@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+           <meta charset="UTF-8">
+           <meta name="viewport" content="width=device-width, initial-scale=1.0">
+           <title>NOTE  APP</title>
+           <link rel="icon" href="/Images/cyber-monday.png">
+</head>
+<body>
+           <button class="create-note-button">Create Notes ✍️</button>
+           <div class="note-container">
+                      <!-- <p class="notes-content", contenteditable="true">
+                                 <img src="/Images/youtube-apps.svg" alt="" class="delete-icon">
+                      </p> -->
+           </div>
+
+           <script>
+                      let note_container = document.querySelector('.note-container');
+                      let create_button = document.querySelector('.create-note-button');
+                      let notes = document.querySelectorAll('.notes-content');
+
+                      create_button.addEventListener('click', () => {
+                                 let CC = document.createElement("p");
+                                 let delete_icon = document.createElement("img");
+                                 CC.className = "notes-content"
+                                 CC.setAttribute('contenteditable', 'true')
+                                 delete_icon.className = "delete-icon"
+                                 delete_icon.src = "/Images/youtube-apps.svg"
+                                 note_container.appendChild(CC).appendChild(delete_icon)
+                      })
+                      note_container.addEventListener('click', function(e) {
+                                 if (e.target.tagName === "IMG") {
+                                            e.target.parentElement.remove();
+                                 }
+                      })
+           </script>
+</body>
+</html>
+
+<style>
+           body {
+                      margin: 0;
+                      background: linear-gradient(to right, red, black);
+           }
+           @keyframes fade-in {
+                      0% {
+                                 transform: scale(0);
+                      }
+                      100% {
+                                 transform: scale(1);
+                      }
+           }
+           .create-note-button {
+                      height: 80px;
+                      width: 280px;
+                      color: rgb(0, 0, 0);
+                      background: linear-gradient(to left, black, red);
+                      border: none;
+                      border-radius: 20px;
+                      box-shadow: 2px 2px 2px black;
+                      margin: 50px;
+                      transition: all ease-in 0.5s;
+                      animation: fade-in 1s 0.3s linear;
+                      font-size: 30px;
+                      font-family: Poor Richard;
+                      &:hover {
+                                 color: rgb(255, 255, 255);
+                                 cursor: pointer;
+                                 background: black;
+                      }
+           }
+           .notes-content {
+                      width: 500px;
+                      position: relative;
+                      height: 200px;
+                      background-color: rgb(156, 8, 8);
+                      border-radius: 10px;
+                      padding-left: 10px;
+                      padding-top: 10px;
+                      margin-left: 50px;
+                      margin-top: -40px;
+                      margin-bottom: 80px;
+
+                      outline: none;
+                      &:active {
+                                 border: none;
+                      }
+                      &:focus {
+                                 border: none;
+                      }
+           }
+           .delete-icon {
+                      position: absolute;
+                      bottom: 10px;
+                      right: 5px;
+                      width: 50px;
+                      transition: all 0.2s ease-in-out;
+                      &:hover {
+                                 cursor: pointer;
+                                 transform: scale(1.2);
+                      }
+                      &:active {
+                                 transform: scale(1);
+                      }
+           }
+</style>
